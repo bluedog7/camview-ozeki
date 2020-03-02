@@ -9,3 +9,4 @@ F:\Source\camview-ozeki\obj\x64\Debug\Camview-ozeki.csproj.CopyComplete
 F:\Source\camview-ozeki\obj\x64\Debug\Camview-ozeki.exe
 F:\Source\camview-ozeki\obj\x64\Debug\Camview-ozeki.pdb
 F:\Source\camview-ozeki\obj\x64\Debug\Camview-ozeki.csprojAssemblyReference.cache
+F:\Source\camview-ozeki\obj\x64\Debug\Camview.View1.resources

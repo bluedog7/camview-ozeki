@@ -29,9 +29,8 @@
             this.components = new System.ComponentModel.Container();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.logListBox = new System.Windows.Forms.ListBox();
-            this.CameraBox = new System.Windows.Forms.GroupBox();
-            this.stateLabel = new System.Windows.Forms.Label();
-            this.videoViewerWF1 = new Ozeki.Media.VideoViewerWF();
+            this.videoViewerWF3 = new Ozeki.Media.VideoViewerWF();
+            this.videoViewerWF2 = new Ozeki.Media.VideoViewerWF();
             this.TabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label11 = new System.Windows.Forms.Label();
@@ -87,7 +86,6 @@
             this.button_PresetMove = new System.Windows.Forms.Button();
             this.button_AddPreset = new System.Windows.Forms.Button();
             this.button_SetHome = new System.Windows.Forms.Button();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.button_ZoomOut = new System.Windows.Forms.Button();
             this.button_ZoomIn = new System.Windows.Forms.Button();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
@@ -108,18 +106,15 @@
             this.label10 = new System.Windows.Forms.Label();
             this.widthText = new System.Windows.Forms.TextBox();
             this.applyButton = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.button_Connect = new System.Windows.Forms.Button();
-            this.button_Disconnect = new System.Windows.Forms.Button();
-            this.tb_cameraUrl = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btn_compose = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.videoViewerWF2 = new Ozeki.Media.VideoViewerWF();
-            this.videoViewerWF3 = new Ozeki.Media.VideoViewerWF();
-            this.groupBox3.SuspendLayout();
-            this.CameraBox.SuspendLayout();
+            this.videoViewerWF1 = new Ozeki.Media.VideoViewerWF();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.videoViewerWF4 = new Ozeki.Media.VideoViewerWF();
+            this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.TabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -139,77 +134,70 @@
             this.PTZTab.SuspendLayout();
             this.groupBox11.SuspendLayout();
             this.groupBox10.SuspendLayout();
-            this.groupBox4.SuspendLayout();
             this.groupBox12.SuspendLayout();
             this.CameraDetailsBox.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.logListBox);
-            this.groupBox3.Location = new System.Drawing.Point(14, 459);
+            this.groupBox3.Location = new System.Drawing.Point(1590, 642);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(525, 127);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Event log";
+            this.groupBox3.Visible = false;
             // 
             // logListBox
             // 
             this.logListBox.FormattingEnabled = true;
             this.logListBox.HorizontalScrollbar = true;
             this.logListBox.ItemHeight = 12;
-            this.logListBox.Location = new System.Drawing.Point(7, 18);
+            this.logListBox.Location = new System.Drawing.Point(1683, 415);
             this.logListBox.Name = "logListBox";
-            this.logListBox.Size = new System.Drawing.Size(510, 100);
+            this.logListBox.Size = new System.Drawing.Size(203, 100);
             this.logListBox.TabIndex = 0;
             // 
-            // CameraBox
+            // videoViewerWF3
             // 
-            this.CameraBox.Controls.Add(this.videoViewerWF3);
-            this.CameraBox.Controls.Add(this.videoViewerWF2);
-            this.CameraBox.Controls.Add(this.stateLabel);
-            this.CameraBox.Controls.Add(this.videoViewerWF1);
-            this.CameraBox.Location = new System.Drawing.Point(14, 96);
-            this.CameraBox.Name = "CameraBox";
-            this.CameraBox.Size = new System.Drawing.Size(525, 332);
-            this.CameraBox.TabIndex = 3;
-            this.CameraBox.TabStop = false;
-            this.CameraBox.Text = "Live camera ";
+            this.videoViewerWF3.BackColor = System.Drawing.Color.Black;
+            this.videoViewerWF3.ContextMenuEnabled = true;
+            this.videoViewerWF3.FlipMode = Ozeki.Media.FlipMode.None;
+            this.videoViewerWF3.FrameStretch = Ozeki.Media.FrameStretch.Uniform;
+            this.videoViewerWF3.FullScreenEnabled = true;
+            this.videoViewerWF3.Location = new System.Drawing.Point(1045, 50);
+            this.videoViewerWF3.Name = "videoViewerWF3";
+            this.videoViewerWF3.RotateAngle = 0;
+            this.videoViewerWF3.Size = new System.Drawing.Size(457, 260);
+            this.videoViewerWF3.TabIndex = 3;
+            this.videoViewerWF3.Text = "videoViewerWF3";
             // 
-            // stateLabel
+            // videoViewerWF2
             // 
-            this.stateLabel.AutoSize = true;
-            this.stateLabel.Location = new System.Drawing.Point(5, 315);
-            this.stateLabel.Name = "stateLabel";
-            this.stateLabel.Size = new System.Drawing.Size(0, 12);
-            this.stateLabel.TabIndex = 1;
-            // 
-            // videoViewerWF1
-            // 
-            this.videoViewerWF1.BackColor = System.Drawing.Color.Black;
-            this.videoViewerWF1.ContextMenuEnabled = true;
-            this.videoViewerWF1.FlipMode = Ozeki.Media.FlipMode.None;
-            this.videoViewerWF1.FrameStretch = Ozeki.Media.FrameStretch.Uniform;
-            this.videoViewerWF1.FullScreenEnabled = true;
-            this.videoViewerWF1.Location = new System.Drawing.Point(6, 11);
-            this.videoViewerWF1.Name = "videoViewerWF1";
-            this.videoViewerWF1.RotateAngle = 0;
-            this.videoViewerWF1.Size = new System.Drawing.Size(258, 152);
-            this.videoViewerWF1.TabIndex = 0;
-            this.videoViewerWF1.Text = "videoViewerWF1";
+            this.videoViewerWF2.BackColor = System.Drawing.Color.Black;
+            this.videoViewerWF2.ContextMenuEnabled = true;
+            this.videoViewerWF2.FlipMode = Ozeki.Media.FlipMode.None;
+            this.videoViewerWF2.FrameStretch = Ozeki.Media.FrameStretch.Uniform;
+            this.videoViewerWF2.FullScreenEnabled = true;
+            this.videoViewerWF2.Location = new System.Drawing.Point(557, 50);
+            this.videoViewerWF2.Name = "videoViewerWF2";
+            this.videoViewerWF2.RotateAngle = 0;
+            this.videoViewerWF2.Size = new System.Drawing.Size(457, 260);
+            this.videoViewerWF2.TabIndex = 2;
+            this.videoViewerWF2.Text = "videoViewerWF2";
+            this.videoViewerWF2.DoubleClick += new System.EventHandler(this.VideoViewerWF2_DoubleClick);
             // 
             // TabControl
             // 
             this.TabControl.Controls.Add(this.tabPage1);
             this.TabControl.Controls.Add(this.settingsTab);
             this.TabControl.Controls.Add(this.PTZTab);
-            this.TabControl.Location = new System.Drawing.Point(546, 100);
+            this.TabControl.Location = new System.Drawing.Point(1951, 162);
             this.TabControl.Name = "TabControl";
             this.TabControl.SelectedIndex = 0;
-            this.TabControl.Size = new System.Drawing.Size(531, 332);
+            this.TabControl.Size = new System.Drawing.Size(531, 244);
             this.TabControl.TabIndex = 4;
+            this.TabControl.Visible = false;
             // 
             // tabPage1
             // 
@@ -219,7 +207,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(523, 306);
+            this.tabPage1.Size = new System.Drawing.Size(523, 218);
             this.tabPage1.TabIndex = 1;
             this.tabPage1.Text = "Streams";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -299,7 +287,7 @@
             this.settingsTab.Location = new System.Drawing.Point(4, 22);
             this.settingsTab.Name = "settingsTab";
             this.settingsTab.Padding = new System.Windows.Forms.Padding(3);
-            this.settingsTab.Size = new System.Drawing.Size(523, 306);
+            this.settingsTab.Size = new System.Drawing.Size(523, 218);
             this.settingsTab.TabIndex = 2;
             this.settingsTab.Text = "Settings";
             this.settingsTab.UseVisualStyleBackColor = true;
@@ -608,12 +596,10 @@
             // 
             this.PTZTab.Controls.Add(this.groupBox11);
             this.PTZTab.Controls.Add(this.groupBox10);
-            this.PTZTab.Controls.Add(this.groupBox4);
-            this.PTZTab.Controls.Add(this.groupBox12);
             this.PTZTab.Location = new System.Drawing.Point(4, 22);
             this.PTZTab.Name = "PTZTab";
             this.PTZTab.Padding = new System.Windows.Forms.Padding(3);
-            this.PTZTab.Size = new System.Drawing.Size(523, 306);
+            this.PTZTab.Size = new System.Drawing.Size(523, 218);
             this.PTZTab.TabIndex = 3;
             this.PTZTab.Text = "Camera control";
             this.PTZTab.UseVisualStyleBackColor = true;
@@ -770,20 +756,9 @@
             this.button_SetHome.UseVisualStyleBackColor = true;
             this.button_SetHome.Click += new System.EventHandler(this.button_SetHome_Click);
             // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.button_ZoomOut);
-            this.groupBox4.Controls.Add(this.button_ZoomIn);
-            this.groupBox4.Location = new System.Drawing.Point(204, 16);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(66, 163);
-            this.groupBox4.TabIndex = 5;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Zoom";
-            // 
             // button_ZoomOut
             // 
-            this.button_ZoomOut.Location = new System.Drawing.Point(8, 113);
+            this.button_ZoomOut.Location = new System.Drawing.Point(1824, 341);
             this.button_ZoomOut.Name = "button_ZoomOut";
             this.button_ZoomOut.Size = new System.Drawing.Size(52, 42);
             this.button_ZoomOut.TabIndex = 1;
@@ -794,7 +769,7 @@
             // 
             // button_ZoomIn
             // 
-            this.button_ZoomIn.Location = new System.Drawing.Point(8, 18);
+            this.button_ZoomIn.Location = new System.Drawing.Point(1824, 114);
             this.button_ZoomIn.Name = "button_ZoomIn";
             this.button_ZoomIn.Size = new System.Drawing.Size(52, 42);
             this.button_ZoomIn.TabIndex = 0;
@@ -814,7 +789,7 @@
             this.groupBox12.Controls.Add(this.button_Left);
             this.groupBox12.Controls.Add(this.button_Up);
             this.groupBox12.Controls.Add(this.button_UpLeft);
-            this.groupBox12.Location = new System.Drawing.Point(7, 16);
+            this.groupBox12.Location = new System.Drawing.Point(1697, 162);
             this.groupBox12.Name = "groupBox12";
             this.groupBox12.Size = new System.Drawing.Size(189, 163);
             this.groupBox12.TabIndex = 4;
@@ -834,7 +809,7 @@
             // 
             // button_Right
             // 
-            this.button_Right.Location = new System.Drawing.Point(127, 66);
+            this.button_Right.Location = new System.Drawing.Point(127, 65);
             this.button_Right.Name = "button_Right";
             this.button_Right.Size = new System.Drawing.Size(52, 42);
             this.button_Right.TabIndex = 7;
@@ -926,7 +901,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label9.Location = new System.Drawing.Point(960, 24);
+            this.label9.Location = new System.Drawing.Point(1489, 9);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(76, 20);
             this.label9.TabIndex = 7;
@@ -935,12 +910,13 @@
             // CameraDetailsBox
             // 
             this.CameraDetailsBox.Controls.Add(this.DetailsText);
-            this.CameraDetailsBox.Location = new System.Drawing.Point(546, 438);
+            this.CameraDetailsBox.Location = new System.Drawing.Point(1892, 463);
             this.CameraDetailsBox.Name = "CameraDetailsBox";
             this.CameraDetailsBox.Size = new System.Drawing.Size(530, 149);
             this.CameraDetailsBox.TabIndex = 9;
             this.CameraDetailsBox.TabStop = false;
             this.CameraDetailsBox.Text = "Camera details";
+            this.CameraDetailsBox.Visible = false;
             // 
             // DetailsText
             // 
@@ -954,75 +930,55 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(15, 438);
+            this.label4.Location = new System.Drawing.Point(1591, 621);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(40, 12);
             this.label4.TabIndex = 10;
             this.label4.Text = "Height";
+            this.label4.Visible = false;
             // 
             // heightText
             // 
-            this.heightText.Location = new System.Drawing.Point(66, 435);
+            this.heightText.Location = new System.Drawing.Point(1642, 618);
             this.heightText.Name = "heightText";
             this.heightText.Size = new System.Drawing.Size(116, 21);
             this.heightText.TabIndex = 11;
+            this.heightText.Visible = false;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(189, 438);
+            this.label10.Location = new System.Drawing.Point(1765, 621);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(35, 12);
             this.label10.TabIndex = 12;
             this.label10.Text = "Width";
+            this.label10.Visible = false;
             // 
             // widthText
             // 
-            this.widthText.Location = new System.Drawing.Point(246, 435);
+            this.widthText.Location = new System.Drawing.Point(1822, 618);
             this.widthText.Name = "widthText";
             this.widthText.Size = new System.Drawing.Size(116, 21);
             this.widthText.TabIndex = 13;
+            this.widthText.Visible = false;
             // 
             // applyButton
             // 
-            this.applyButton.Location = new System.Drawing.Point(444, 433);
+            this.applyButton.Location = new System.Drawing.Point(2020, 616);
             this.applyButton.Name = "applyButton";
             this.applyButton.Size = new System.Drawing.Size(87, 21);
             this.applyButton.TabIndex = 14;
             this.applyButton.Text = "Apply";
             this.applyButton.UseVisualStyleBackColor = true;
+            this.applyButton.Visible = false;
             this.applyButton.Click += new System.EventHandler(this.applyButton_Click);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.button_Connect);
-            this.groupBox1.Controls.Add(this.button_Disconnect);
-            this.groupBox1.Controls.Add(this.tb_cameraUrl);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.btn_compose);
-            this.groupBox1.Location = new System.Drawing.Point(14, 11);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(525, 79);
-            this.groupBox1.TabIndex = 15;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Connect";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(562, 54);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 23;
-            this.button1.Text = "audio Off";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // button_Connect
             // 
-            this.button_Connect.Enabled = false;
             this.button_Connect.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.button_Connect.ForeColor = System.Drawing.Color.Black;
-            this.button_Connect.Location = new System.Drawing.Point(171, 40);
+            this.button_Connect.Location = new System.Drawing.Point(1799, 57);
             this.button_Connect.Name = "button_Connect";
             this.button_Connect.Size = new System.Drawing.Size(93, 21);
             this.button_Connect.TabIndex = 18;
@@ -1030,47 +986,19 @@
             this.button_Connect.UseVisualStyleBackColor = true;
             this.button_Connect.Click += new System.EventHandler(this.button_Connect_Click);
             // 
-            // button_Disconnect
+            // button1
             // 
-            this.button_Disconnect.Enabled = false;
-            this.button_Disconnect.Location = new System.Drawing.Point(272, 40);
-            this.button_Disconnect.Name = "button_Disconnect";
-            this.button_Disconnect.Size = new System.Drawing.Size(87, 21);
-            this.button_Disconnect.TabIndex = 22;
-            this.button_Disconnect.Text = "Disconnect";
-            this.button_Disconnect.UseVisualStyleBackColor = true;
-            this.button_Disconnect.Click += new System.EventHandler(this.button_Disconnect_Click);
-            // 
-            // tb_cameraUrl
-            // 
-            this.tb_cameraUrl.Location = new System.Drawing.Point(97, 16);
-            this.tb_cameraUrl.Name = "tb_cameraUrl";
-            this.tb_cameraUrl.ReadOnly = true;
-            this.tb_cameraUrl.Size = new System.Drawing.Size(326, 21);
-            this.tb_cameraUrl.TabIndex = 21;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 18);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 12);
-            this.label1.TabIndex = 20;
-            this.label1.Text = "Camera URL:";
-            // 
-            // btn_compose
-            // 
-            this.btn_compose.Location = new System.Drawing.Point(430, 14);
-            this.btn_compose.Name = "btn_compose";
-            this.btn_compose.Size = new System.Drawing.Size(87, 21);
-            this.btn_compose.TabIndex = 19;
-            this.btn_compose.Text = "Compose";
-            this.btn_compose.UseVisualStyleBackColor = true;
-            this.btn_compose.Click += new System.EventHandler(this.btn_compose_Click);
+            this.button1.Location = new System.Drawing.Point(1716, 133);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 23;
+            this.button1.Text = "audio Off";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(562, 25);
+            this.button2.Location = new System.Drawing.Point(1716, 104);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 24;
@@ -1078,42 +1006,103 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.Button2_Click);
             // 
-            // videoViewerWF2
+            // videoViewerWF1
             // 
-            this.videoViewerWF2.BackColor = System.Drawing.Color.Black;
-            this.videoViewerWF2.ContextMenuEnabled = true;
-            this.videoViewerWF2.FlipMode = Ozeki.Media.FlipMode.None;
-            this.videoViewerWF2.FrameStretch = Ozeki.Media.FrameStretch.Uniform;
-            this.videoViewerWF2.FullScreenEnabled = true;
-            this.videoViewerWF2.Location = new System.Drawing.Point(264, 169);
-            this.videoViewerWF2.Name = "videoViewerWF2";
-            this.videoViewerWF2.RotateAngle = 0;
-            this.videoViewerWF2.Size = new System.Drawing.Size(261, 148);
-            this.videoViewerWF2.TabIndex = 2;
-            this.videoViewerWF2.Text = "videoViewerWF2";
+            this.videoViewerWF1.BackColor = System.Drawing.Color.Black;
+            this.videoViewerWF1.ContextMenuEnabled = true;
+            this.videoViewerWF1.FlipMode = Ozeki.Media.FlipMode.None;
+            this.videoViewerWF1.FrameStretch = Ozeki.Media.FrameStretch.Uniform;
+            this.videoViewerWF1.FullScreenEnabled = true;
+            this.videoViewerWF1.Location = new System.Drawing.Point(60, 50);
+            this.videoViewerWF1.Name = "videoViewerWF1";
+            this.videoViewerWF1.RotateAngle = 0;
+            this.videoViewerWF1.Size = new System.Drawing.Size(457, 260);
+            this.videoViewerWF1.TabIndex = 0;
+            this.videoViewerWF1.Text = "videoViewerWF1";
             // 
-            // videoViewerWF3
+            // radioButton1
             // 
-            this.videoViewerWF3.BackColor = System.Drawing.Color.Black;
-            this.videoViewerWF3.ContextMenuEnabled = true;
-            this.videoViewerWF3.FlipMode = Ozeki.Media.FlipMode.None;
-            this.videoViewerWF3.FrameStretch = Ozeki.Media.FrameStretch.Uniform;
-            this.videoViewerWF3.FullScreenEnabled = true;
-            this.videoViewerWF3.Location = new System.Drawing.Point(264, 11);
-            this.videoViewerWF3.Name = "videoViewerWF3";
-            this.videoViewerWF3.RotateAngle = 0;
-            this.videoViewerWF3.Size = new System.Drawing.Size(261, 152);
-            this.videoViewerWF3.TabIndex = 3;
-            this.videoViewerWF3.Text = "videoViewerWF3";
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Font = new System.Drawing.Font("굴림", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.radioButton1.Location = new System.Drawing.Point(60, 31);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(14, 13);
+            this.radioButton1.TabIndex = 25;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.Click += new System.EventHandler(this.RadioButton1_Click);
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Font = new System.Drawing.Font("굴림", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.radioButton2.Location = new System.Drawing.Point(557, 31);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(14, 13);
+            this.radioButton2.TabIndex = 26;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton2.Click += new System.EventHandler(this.RadioButton2_Click);
+            // 
+            // radioButton3
+            // 
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Font = new System.Drawing.Font("굴림", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.radioButton3.Location = new System.Drawing.Point(1045, 31);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(14, 13);
+            this.radioButton3.TabIndex = 27;
+            this.radioButton3.TabStop = true;
+            this.radioButton3.UseVisualStyleBackColor = true;
+            this.radioButton3.Click += new System.EventHandler(this.RadioButton3_Click);
+            // 
+            // videoViewerWF4
+            // 
+            this.videoViewerWF4.BackColor = System.Drawing.Color.Black;
+            this.videoViewerWF4.ContextMenuEnabled = true;
+            this.videoViewerWF4.FlipMode = Ozeki.Media.FlipMode.None;
+            this.videoViewerWF4.FrameStretch = Ozeki.Media.FrameStretch.Uniform;
+            this.videoViewerWF4.FullScreenEnabled = true;
+            this.videoViewerWF4.Location = new System.Drawing.Point(60, 415);
+            this.videoViewerWF4.Name = "videoViewerWF4";
+            this.videoViewerWF4.RotateAngle = 0;
+            this.videoViewerWF4.Size = new System.Drawing.Size(457, 260);
+            this.videoViewerWF4.TabIndex = 28;
+            this.videoViewerWF4.Text = "videoViewerWF4";
+            // 
+            // radioButton4
+            // 
+            this.radioButton4.AutoSize = true;
+            this.radioButton4.Font = new System.Drawing.Font("굴림", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.radioButton4.Location = new System.Drawing.Point(60, 389);
+            this.radioButton4.Name = "radioButton4";
+            this.radioButton4.Size = new System.Drawing.Size(14, 13);
+            this.radioButton4.TabIndex = 29;
+            this.radioButton4.TabStop = true;
+            this.radioButton4.UseVisualStyleBackColor = true;
+            this.radioButton4.CheckedChanged += new System.EventHandler(this.RadioButton4_CheckedChanged);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1090, 592);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.Controls.Add(this.logListBox);
+            this.Controls.Add(this.button_ZoomOut);
+            this.Controls.Add(this.radioButton4);
+            this.Controls.Add(this.button_ZoomIn);
+            this.Controls.Add(this.videoViewerWF4);
+            this.Controls.Add(this.button_Connect);
+            this.Controls.Add(this.radioButton3);
+            this.Controls.Add(this.radioButton2);
+            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.groupBox12);
+            this.Controls.Add(this.videoViewerWF3);
+            this.Controls.Add(this.videoViewerWF1);
             this.Controls.Add(this.button1);
+            this.Controls.Add(this.videoViewerWF2);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.applyButton);
             this.Controls.Add(this.widthText);
             this.Controls.Add(this.label10);
@@ -1122,18 +1111,15 @@
             this.Controls.Add(this.CameraDetailsBox);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.TabControl);
-            this.Controls.Add(this.CameraBox);
             this.Controls.Add(this.groupBox3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PTZ camera motion";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             this.Load += new System.EventHandler(this.MainForm_Load);
-            this.groupBox3.ResumeLayout(false);
-            this.CameraBox.ResumeLayout(false);
-            this.CameraBox.PerformLayout();
             this.TabControl.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -1160,18 +1146,14 @@
             this.groupBox11.PerformLayout();
             this.groupBox10.ResumeLayout(false);
             this.groupBox10.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
             this.groupBox12.ResumeLayout(false);
             this.CameraDetailsBox.ResumeLayout(false);
             this.CameraDetailsBox.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.GroupBox CameraBox;
         private System.Windows.Forms.TabControl TabControl;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox AudioInfoText;
@@ -1206,7 +1188,6 @@
         private System.Windows.Forms.Button button_PresetMove;
         private System.Windows.Forms.Button button_AddPreset;
         private System.Windows.Forms.Button button_SetHome;
-        private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button button_ZoomOut;
         private System.Windows.Forms.Button button_ZoomIn;
         private System.Windows.Forms.GroupBox groupBox12;
@@ -1249,18 +1230,17 @@
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.CheckBox VerticalFlipCheck;
         private System.Windows.Forms.CheckBox HorizontalFlipCheck;
-        private System.Windows.Forms.Label stateLabel;
-        private Ozeki.Media.VideoViewerWF videoViewerWF1;
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button_Connect;
-        private System.Windows.Forms.Button button_Disconnect;
-        private System.Windows.Forms.TextBox tb_cameraUrl;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btn_compose;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private Ozeki.Media.VideoViewerWF videoViewerWF2;
         private Ozeki.Media.VideoViewerWF videoViewerWF3;
+        private Ozeki.Media.VideoViewerWF videoViewerWF1;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButton3;
+        private Ozeki.Media.VideoViewerWF videoViewerWF4;
+        private System.Windows.Forms.RadioButton radioButton4;
     }
 }
 

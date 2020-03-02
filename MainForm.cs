@@ -6,51 +6,61 @@ using System.Windows.Forms;
 using Ozeki.Camera;
 using Ozeki.Media;
 using _02_PTZ_Camera_Motion_Control.LOG;
-
+using System.Configuration;
 namespace Camview
 {
     public partial class MainForm : Form
     {
         private IpCameraHandler _model;
         private  IpCameraHandler[] _models;
+        private RadioButton[] Ctlchecked;
         private VideoViewerWF[] videoViewerWFs;
         private CameraURLBuilderWF _myCameraUrlBuilder;
+        private String[] connectStr;
         private Speaker _speaker;
         private int CurrentCamera = 0;
-
+        AppSettingsReader ar;
         public MainForm()
         {
             InitializeComponent();
+            ar = new AppSettingsReader();
             _speaker = Speaker.GetDefaultDevice();
-
+            Ctlchecked = new RadioButton[24];
+            connectStr = new String[24];
             Log.OnLogMessageReceived += Log_OnLogMessageReceived;
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-
             _model = new IpCameraHandler(0);
             _models = new IpCameraHandler[24];
             videoViewerWFs = new VideoViewerWF[24];
-            videoViewerWFs[0] = videoViewerWF1;
-            videoViewerWFs[1] = videoViewerWF2;
-            videoViewerWFs[2] = videoViewerWF3;
-            for (int i=0;i<24;i++)
+
+            for (int i = 0; i < 4; i++)
             {
                 _models[i] = new IpCameraHandler(i);
                 _models[i].CameraStateChanged += ModelCameraStateChanged;
                 _models[i].CameraErrorOccured += ModelCameraErrorOccured;
+                videoViewerWFs[i] = (VideoViewerWF)this.Controls["videoViewerWF" + (i + 1).ToString()];
+                videoViewerWFs[i].SetImageProvider(_models[i].ImageProvider);
+                Ctlchecked[i] = (RadioButton)this.Controls["radioButton" + (i + 1).ToString()];
+                Ctlchecked[i].Checked = false;
+                Ctlchecked[i].Text = (String)ar.GetValue("group" + (i + 1).ToString(), typeof(String));
+                connectStr[i] = "http://" + (String)ar.GetValue("cam" + (i + 1).ToString(), typeof(String)) + ":80;Username=admin;Password=" 
+                              + (String)ar.GetValue("password" + (i + 1).ToString(), typeof(String)) + ";Transport=TCP;";
+
             }
-          //  _models[CurrentCamera].CameraStateChanged += ModelCameraStateChanged;
-          //  _models[CurrentCamera].CameraErrorOccured += ModelCameraErrorOccured;
-           
+
+          
             _myCameraUrlBuilder = new CameraURLBuilderWF();
 
             InitializeViewer();
-            videoViewerWFs[0].SetImageProvider(_models[0].ImageProvider);
-            videoViewerWFs[1].SetImageProvider(_models[1].ImageProvider);
-            videoViewerWFs[2].SetImageProvider(_models[2].ImageProvider);
+
             comboBox_Direction.DataSource = Enum.GetValues(typeof(PatrolDirection));
+
+            CurrentCamera = 0;
+
+            Ctlchecked[CurrentCamera].Checked = true;
         }
 
         private void InitializeViewer()
@@ -85,7 +95,7 @@ namespace Camview
                         ClearFields();
                         GetCameraStreams(Camera.Camnum);
 
-                        button_Disconnect.Enabled = true;
+                     //   button_Disconnect.Enabled = true;
 
                        // if (_models[Camera.Camnum].Camera.UriType != CameraUriType.RTSP)
                        //     InitializeTrackBars();
@@ -93,7 +103,7 @@ namespace Camview
                         break;
 
                     case CameraState.Disconnected:
-                        button_Disconnect.Enabled = false;
+                      //  button_Disconnect.Enabled = false;
                         videoViewerWFs[Camera.Camnum].Stop();
                         button_Connect.Enabled = true;
                         break;
@@ -140,36 +150,44 @@ namespace Camview
 
         private void button_Connect_Click(object sender, EventArgs e)
         {
-            ClearFields();
+          //  ClearFields();
             // ONVIF
-            if (tb_cameraUrl.Text.ToUpper().Trim().StartsWith("RTSP://"))
-                Log.Write("Connecting to a stream of ONVIF device by RTSP");
-            else if (tb_cameraUrl.Text.ToUpper().Trim().StartsWith("HTTP://"))
-                Log.Write("Connecting to ONVIF device by HTTP");
-            else if (tb_cameraUrl.Text.ToUpper().Trim().StartsWith("USB://"))
-                Log.Write("Connecting to an USB device");
             ConnectIpCam();
             GetCameraStreams(0);
             GetCameraStreams(1);
             GetCameraStreams(2);
+            GetCameraStreams(3);
             AudioInfoText.Clear();
             VideoInfoText.Clear();
-            System.Threading.Thread.Sleep(5000);
+           // while (_models[CurrentCamera].Camera.AvailableStreams.Count<2)
+                    System.Threading.Thread.Sleep(5000);
             var CurrentStream = _models[CurrentCamera].Camera.AvailableStreams[2];
             if (CurrentStream == null) throw new ArgumentNullException("Stream");
             Log.Write("0 Camera changed stream to " + CurrentStream.Name);
             _models[0].Camera.Start(CurrentStream);
             _models[0].AudioOff();
-             CurrentStream = _models[1].Camera.AvailableStreams[2];
-            if (CurrentStream == null) throw new ArgumentNullException("Stream");
-            Log.Write("1 Camera changed stream to " + CurrentStream.Name);
-            _models[1].Camera.Start(CurrentStream);
-            _models[1].AudioOff();
-            CurrentStream = _models[2].Camera.AvailableStreams[2];
+            //while (_models[1].Camera.AvailableStreams.Count < 2)
+            //    System.Threading.Thread.Sleep(1000);
+            for (int i = 1; i < 4; i++)
+            {
+                CurrentStream = _models[i].Camera.AvailableStreams[2];
+                if (CurrentStream == null) throw new ArgumentNullException("Stream");
+                Log.Write("1 Camera changed stream to " + CurrentStream.Name);
+                _models[i].Camera.Start(CurrentStream);
+                _models[i].AudioOff();
+            }
+            //while (_models[2].Camera.AvailableStreams.Count < 2)
+            //    System.Threading.Thread.Sleep(1000);
+         /*   CurrentStream = _models[2].Camera.AvailableStreams[2];
             if (CurrentStream == null) throw new ArgumentNullException("Stream");
             Log.Write("2 Camera changed stream to " + CurrentStream.Name);
             _models[2].Camera.Start(CurrentStream);
             _models[2].AudioOff();
+            CurrentStream = _models[3].Camera.AvailableStreams[2];
+            if (CurrentStream == null) throw new ArgumentNullException("Stream");
+            Log.Write("2 Camera changed stream to " + CurrentStream.Name);
+            _models[3].Camera.Start(CurrentStream);
+            _models[3].AudioOff(); */
             // _models[CurrentCamera].Camera.AudioChannel.
         }
 
@@ -183,12 +201,16 @@ namespace Camview
 
         private void ConnectIpCam()
         {
-            _models[0].ConnectOnvifCamera(_myCameraUrlBuilder.CameraURL);
-            _models[1].ConnectOnvifCamera("http://168.131.101.194:80;Username=admin;Password=ibst2997730;Transport=TCP;");
-            _models[2].ConnectOnvifCamera("http://168.131.101.191:80;Username=admin;Password=ibst2997730;Transport=TCP;");
-            videoViewerWFs[0].Start();
-            videoViewerWFs[1].Start();
-            videoViewerWFs[2].Start();
+           // _models[0].ConnectOnvifCamera(_myCameraUrlBuilder.CameraURL);
+            for (int i = 0; i < 4; i++)
+            {
+                _models[i].ConnectOnvifCamera(connectStr[i]);
+         //       _models[2].ConnectOnvifCamera("http://168.131.101.191:80;Username=admin;Password=ibst2997730;Transport=TCP;");
+            }
+            for (int i = 0; i < 4; i++)
+            {
+                videoViewerWFs[i].Start();
+            }
         }
 
         #endregion
@@ -303,10 +325,10 @@ namespace Camview
         {
             videoViewerWF1.Anchor = AnchorStyles.None;
             videoViewerWF1.Dock = DockStyle.None;
-            var pt = CameraBox.DisplayRectangle.Location;
-            pt.X += (CameraBox.DisplayRectangle.Width - videoViewerWF1.Width) / 2;
+            var pt = DisplayRectangle.Location;
+            pt.X += (DisplayRectangle.Width - videoViewerWF1.Width) / 2;
 
-            pt.Y += (CameraBox.DisplayRectangle.Height - videoViewerWF1.Height) / 2;
+            pt.Y += (DisplayRectangle.Height - videoViewerWF1.Height) / 2;
 
          //   videoViewerWF1.Location = pt;
         }
@@ -530,7 +552,7 @@ namespace Camview
 
             if (result != DialogResult.OK) return;
 
-            tb_cameraUrl.Text = _myCameraUrlBuilder.CameraURL;
+            //tb_cameraUrl.Text = _myCameraUrlBuilder.CameraURL;
 
             button_Connect.Enabled = true;
         }
@@ -548,6 +570,32 @@ namespace Camview
         private void Button_Right_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void RadioButton1_Click(object sender, EventArgs e)
+        {
+            CurrentCamera = 0;
+        }
+
+        private void RadioButton2_Click(object sender, EventArgs e)
+        
+            {
+                CurrentCamera = 1;
+            }
+
+        private void RadioButton3_Click(object sender, EventArgs e)
+        {
+            CurrentCamera = 2;
+         }
+
+        private void VideoViewerWF2_DoubleClick(object sender, EventArgs e)
+        {
+            CurrentCamera = 1;
+        }
+
+        private void RadioButton4_CheckedChanged(object sender, EventArgs e)
+        {
+            CurrentCamera = 3;
         }
     }
 }

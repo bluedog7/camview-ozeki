@@ -8,3 +8,5 @@ F:\Source\camview-ozeki\obj\x64\Release\Camview-ozeki.csproj.CoreCompileInputs.c
 F:\Source\camview-ozeki\obj\x64\Release\Camview-ozeki.csproj.CopyComplete
 F:\Source\camview-ozeki\obj\x64\Release\Camview-ozeki.exe
 F:\Source\camview-ozeki\obj\x64\Release\Camview-ozeki.pdb
+F:\Source\camview-ozeki\obj\x64\Release\Camview-ozeki.csprojAssemblyReference.cache
+F:\Source\camview-ozeki\obj\x64\Release\Camview.View1.resources
