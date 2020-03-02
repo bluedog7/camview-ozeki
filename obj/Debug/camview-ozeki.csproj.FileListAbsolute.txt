@@ -1,0 +1,11 @@
+F:\Source\camview-ozeki\bin\Debug\Camview-ozeki.exe.config
+F:\Source\camview-ozeki\bin\Debug\Camview-ozeki.exe
+F:\Source\camview-ozeki\bin\Debug\Camview-ozeki.pdb
+F:\Source\camview-ozeki\bin\Debug\OzekiSDK.dll
+F:\Source\camview-ozeki\obj\Debug\Camview.MainForm.resources
+F:\Source\camview-ozeki\obj\Debug\Camview-ozeki.csproj.GenerateResource.cache
+F:\Source\camview-ozeki\obj\Debug\Camview-ozeki.csproj.CoreCompileInputs.cache
+F:\Source\camview-ozeki\obj\Debug\Camview-ozeki.csproj.CopyComplete
+F:\Source\camview-ozeki\obj\Debug\Camview-ozeki.exe
+F:\Source\camview-ozeki\obj\Debug\Camview-ozeki.pdb
+F:\Source\camview-ozeki\obj\Debug\Camview-ozeki.csprojAssemblyReference.cache
