@@ -46,14 +46,14 @@ namespace newcam
 
         private void ConnectBtn_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < 6; i++)
+            for (int i = 0; i < 9; i++)
 
             {
                 Cameras[i] = IPCameraFactory.GetCamera(connectStr[i], "admin", (String)ar.GetValue("password" + (i + 1).ToString(), typeof(String)));
                 CamPTZ[i] = new IPCamera(PTZStr[i], "admin", (String)ar.GetValue("password" + (i + 1).ToString(), typeof(String)));
                 //CamPTZ[i] = new IPCamera("165.246.112.35", "admin","ibst0552997730");
                 _connector[i].Connect(Cameras[i].VideoChannel, _imageProvider[i]);
-                _connector[i].Connect(Cameras[i].AudioChannel, _speaker);
+                //_connector[i].Connect(Cameras[i].AudioChannel, _speaker);
                 Cameras[i].Start();
                 CamPTZ[i].Start();
                 videoViewerWFs[i].Start();
@@ -96,6 +96,10 @@ namespace newcam
             CamPTZ[CurrentCamera].CameraMovement.ContinuousMove(MoveDirection.Right);
         }
 
+        private void Button4_MouseUp(object sender, MouseEventArgs e)
+        {
+            CamPTZ[CurrentCamera].CameraMovement.StopMovement();
+        }
         private void RadioButton1_CheckedChanged(object sender, EventArgs e)
         {
 
@@ -122,15 +126,44 @@ namespace newcam
             Ctlchecked[CurrentCamera].Checked = true;
         }
 
-        private void Button4_MouseUp(object sender, MouseEventArgs e)
+        private void Button5_Click(object sender, EventArgs e)
+        {
+            this.Controls["micpic" + (CurrentCamera + 1).ToString()].Visible = true;
+            _connector[CurrentCamera].Connect(Cameras[CurrentCamera].AudioChannel, _speaker);
+        }
+
+        private void Button6_Click(object sender, EventArgs e)
+        {
+            this.Controls["micpic" + (CurrentCamera + 1).ToString()].Visible = false;
+            _connector[CurrentCamera].Disconnect(Cameras[CurrentCamera].AudioChannel, _speaker);
+        }
+
+        private void Button8_MouseDown(object sender, MouseEventArgs e)
+        {
+            CamPTZ[CurrentCamera].CameraMovement.Zoom(MoveDirection.Out);
+        }
+
+        private void Button7_MouseUp(object sender, MouseEventArgs e)
         {
             CamPTZ[CurrentCamera].CameraMovement.StopMovement();
         }
 
+        private void Button8_MouseUp(object sender, MouseEventArgs e)
+        {
+            CamPTZ[CurrentCamera].CameraMovement.StopMovement();
+        }
+
+        private void Button7_MouseDown(object sender, MouseEventArgs e)
+        {
+            CamPTZ[CurrentCamera].CameraMovement.Zoom(MoveDirection.In);
+        }
+
+
         private void Form1_Load(object sender, EventArgs e)
         {
-            for (int i = 0; i < 6; i++)
+            for (int i = 0; i < 9; i++)
             {
+                int Panasonic = 0;
                 videoViewerWFs[i] = (VideoViewerWF)this.Controls["videoViewerWF" + (i + 1).ToString()];
                 videoViewerWFs[i].Click += VideoViewerWF_Click;
                 _imageProvider[i] = new DrawingImageProvider();
@@ -140,7 +173,11 @@ namespace newcam
                 Ctlchecked[i].Checked = false;
                 Ctlchecked[i].Click += RadioButton_Click;
                 Ctlchecked[i].Text = (String)ar.GetValue("group" + (i + 1).ToString(), typeof(String));
-                connectStr[i] = "rtsp://" + (String)ar.GetValue("cam" + (i + 1).ToString(), typeof(String)) + ":554/cam/media.smp";
+                Panasonic= (int)ar.GetValue("Panasonic", typeof(int));
+                if (Panasonic==0)
+                    connectStr[i] = "rtsp://" + (String)ar.GetValue("cam" + (i + 1).ToString(), typeof(String)) + ":554/cam/media.smp";
+                else
+                    connectStr[i] = "rtsp://" + (String)ar.GetValue("cam" + (i + 1).ToString(), typeof(String)) + "/MediaInput/h264/stream_2";
                 PTZStr[i] =  (String)ar.GetValue("cam" + (i + 1).ToString(), typeof(String));
                 //       + (String)ar.GetValue("password" + (i + 1).ToString(), typeof(String)) + ";Transport=TCP;";
                 

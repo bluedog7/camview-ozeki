@@ -2,7 +2,6 @@ F:\Source\camview-ozeki\bin\x64\Release\newcam.exe.config
 F:\Source\camview-ozeki\bin\x64\Release\newcam.exe
 F:\Source\camview-ozeki\bin\x64\Release\newcam.pdb
 F:\Source\camview-ozeki\bin\x64\Release\OzekiSDK.dll
-F:\Source\camview-ozeki\obj\x64\Release\Camview-Ozeki.csprojAssemblyReference.cache
 F:\Source\camview-ozeki\obj\x64\Release\newcam.Form1.resources
 F:\Source\camview-ozeki\obj\x64\Release\newcam.Properties.Resources.resources
 F:\Source\camview-ozeki\obj\x64\Release\Camview-Ozeki.csproj.GenerateResource.cache
