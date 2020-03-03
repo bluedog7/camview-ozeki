@@ -1,0 +1,11 @@
+F:\Source\newcam\bin\x64\Release\newcam.exe.config
+F:\Source\newcam\bin\x64\Release\newcam.exe
+F:\Source\newcam\bin\x64\Release\newcam.pdb
+F:\Source\newcam\bin\x64\Release\OzekiSDK.dll
+F:\Source\newcam\obj\x64\Release\newcam.Form1.resources
+F:\Source\newcam\obj\x64\Release\newcam.Properties.Resources.resources
+F:\Source\newcam\obj\x64\Release\newcam.csproj.GenerateResource.cache
+F:\Source\newcam\obj\x64\Release\newcam.csproj.CoreCompileInputs.cache
+F:\Source\newcam\obj\x64\Release\newcam.csproj.CopyComplete
+F:\Source\newcam\obj\x64\Release\newcam.exe
+F:\Source\newcam\obj\x64\Release\newcam.pdb
